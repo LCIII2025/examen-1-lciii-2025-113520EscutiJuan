@@ -20,11 +20,23 @@ public class Cliente {
     public void agregarVehiculo(Vehiculo vehiculo) {
         // TODO implementar la carga de vehiculos en el cliente
 
+        if (vehiculo != null && !vehiculos.contains(vehiculo)) {
+            vehiculos.add(vehiculo);
+        }
     }
 
     public Vehiculo buscarVehiculoPorPatente(String patente) {
         // TODO implementar la busqueda de un vehiculo segun su patente
 
+        if (patente == null || patente.isEmpty()) {
+            return null;
+        }
+
+        for(Vehiculo vehiculo : vehiculos){
+            if(vehiculo.getPatente().equalsIgnoreCase(patente)){
+                return vehiculo;
+            }
+        }
 
         return null;
     }
